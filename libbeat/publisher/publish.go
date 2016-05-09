@@ -18,6 +18,7 @@ import (
 	_ "github.com/elastic/beats/libbeat/outputs/fileout"
 	_ "github.com/elastic/beats/libbeat/outputs/logstash"
 	_ "github.com/elastic/beats/libbeat/outputs/redis"
+	_ "github.com/elastic/beats/libbeat/outputs/httpout"
 )
 
 // command line flags

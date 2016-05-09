@@ -33,6 +33,10 @@ type MothershipConfig struct {
 	TLS               *TLSConfig
 	Worker            int
 	CompressionLevel  *int `yaml:"compression_level"`
+	Encapsulation     map[interface{}]interface{}
+	EncapsulationSign string `yaml:"mesage_signature"`
+	CustomHeaders     map[string]string `yaml:"custom_headers"`
+	CustomFields      map[string]string `yaml:"custom_fields"`
 }
 
 type Template struct {
