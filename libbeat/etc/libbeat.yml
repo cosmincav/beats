@@ -9,12 +9,12 @@
 output:
 
   ### Elasticsearch as output
-  elasticsearch:
+  #elasticsearch:
     # Array of hosts to connect to.
     # Scheme and port can be left out and will be set to the default (http and 9200)
     # In case you specify and additional path, the scheme is required: http://localhost:9200/path
     # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-    hosts: ["localhost:9200"]
+    #hosts: ["localhost:9200"]
 
     # Optional protocol and basic auth credentials.
     #protocol: "https"
@@ -144,6 +144,32 @@ output:
 
       # Configure curve types for ECDHE based cipher suites
       #curve_types: []
+
+  ### Http as output
+  http:
+    # Http host for sending event
+    host: "http://localhost"
+    #Port can be undefined
+    port: 0
+
+    # Structure of the json that will be sent over http. The message_signature key-word will be replaced with the effective event
+    encapsulation:
+      id: 1
+      jsonrpc: "2.0"
+      method: "addRawEvent"
+      params:
+        data: "log_message"
+
+    mesage_signature: "log_message"
+
+    #Custom headers for the http protocol
+    custom_headers:
+      api_key: "test_api_key"
+
+    custom_fields:
+      event_name: "karma_event_name"
+      sensor_name: "filebeat"
+      log_type: "LOG_TYPE"
 
 
   ### File as output
